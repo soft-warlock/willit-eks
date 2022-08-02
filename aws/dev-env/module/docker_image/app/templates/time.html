@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial scale=1.0">
+<title>Document</title>
+<table>
+  <tr><td><h1> Local time is</h1></td> <td><h1><span id="local_time"> </span></h1></td></tr>
+  <tr><td><h1> America/New_York time is&nbsp</h1></td> <td><h1><span id="local_time1"> </span></h1></td></tr>
+  <tr><td><h1> Europe/Berlin time is</h1></td> <td><h1><span id="local_time2"> </span></h1></td></tr>
+  <tr><td><h1> Asia/Tokyo time is</h1></td> <td><h1><span id="local_time3"> </span></h1></td></tr>
+</table>
+<script>
+function refreshTime() {
+  timeDisplay = document.getElementById("local_time");
+  dateString = new Date().toLocaleString('en-GB');
+  timeDisplay.textContent = dateString;
+  timeDisplay = document.getElementById("local_time1", );
+  dateString = new Date().toLocaleString('en-GB', {timeZone: "America/New_York"});
+  timeDisplay.textContent = dateString;
+  timeDisplay = document.getElementById("local_time2");
+  dateString = new Date().toLocaleString('en-GB', {timeZone: "Europe/Berlin"});
+  timeDisplay.textContent = dateString;
+  timeDisplay = document.getElementById("local_time3");
+  dateString = new Date().toLocaleString('en-GB', {timeZone: "Asia/Tokyo"});
+  timeDisplay.textContent = dateString;
+}
+  refreshTime();
+  setInterval(refreshTime, 1000);
+</script>
+</head>
+<body>
+</body>
+</html>

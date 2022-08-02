@@ -1,0 +1,23 @@
+# Default values for flask-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  name: nginx
+  externalPort: 8080
+  internalPort: 8080
+ingress:
+  enabled: true
+  # Used to create an Ingress record.
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+  tls:
+    - secretName: chart-example-tls
+      hosts:
+       - chart-example.local
+resources: {}
